@@ -1,4 +1,4 @@
-import { CategoriaService } from './../services/domain/categoria.service';
+import { CategoriaService } from '../services/domain/categoria.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
