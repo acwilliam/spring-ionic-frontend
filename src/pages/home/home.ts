@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, MenuController } from 'ionic-angular';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
+import { AuthService } from '../../services/auth.service';
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -13,7 +14,10 @@ export class HomePage {
     senha:""
   }
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
+  constructor(
+    public navCtrl: NavController,
+    public menu: MenuController,
+    public auth: AuthService) {
 
   }
   ionViweWillEnter(){
@@ -25,7 +29,12 @@ export class HomePage {
   }
 
   login() {
-    console.log(this.crendenciais);
-    this.navCtrl.setRoot('CategoriasPage');
+    this.auth.autenticar(this.crendenciais)
+    .subscribe(Response =>{
+      console.log(Response.headers.get('Authorization'));
+      this.navCtrl.setRoot('CategoriasPage');
+    },
+    error=>{});
+
   }
 }
