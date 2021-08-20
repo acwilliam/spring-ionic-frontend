@@ -11,7 +11,6 @@ export class  AuthInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log("Passou no interceptor");
 
         let localUser = this.storage.getLocalUser();
 
