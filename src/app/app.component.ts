@@ -19,14 +19,16 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public auth: AuthService ) {
+    public auth: AuthService
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Profile', component: 'ProfilePage' },
       { title: 'Categorias', component: 'CategoriasPage' },
-      { title: 'Logout', component: '' }
+      { title: 'Carrinho', component: 'CartPage'},
+      { title: 'Logout', component: ''}
     ];
 
   }
@@ -42,7 +44,7 @@ export class MyApp {
 
   openPage(page : {title:string, component:string}) {
 
-    switch(page.title){
+    switch (page.title) {
       case 'Logout':
       this.auth.logout();
       this.nav.setRoot('HomePage');
@@ -51,6 +53,5 @@ export class MyApp {
       default:
       this.nav.setRoot(page.component);
     }
-
   }
 }

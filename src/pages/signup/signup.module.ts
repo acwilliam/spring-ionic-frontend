@@ -11,7 +11,7 @@ import { SignupPage } from './signup';
   imports: [
     IonicPageModule.forChild(SignupPage),
   ],
-  providers:[
+  providers: [
     CidadeService,
     EstadoService
   ]

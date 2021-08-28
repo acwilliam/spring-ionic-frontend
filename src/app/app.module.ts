@@ -13,18 +13,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ErrorInterceptorProvider} from '../interceptador/error-intercepator';
 import { AuthService } from '../services/auth.service';
 import { AuthInterceptorProvider } from '../interceptador/auth-intercep';
+import { ProdutoService } from '../services/domain/produto.service';
+import { ImageUtilService } from '../services/image-util.service';
+import { CartService } from '../services/domain/cart.service';
 
 
 
 @NgModule({
   declarations: [
     MyApp
-
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -40,7 +41,10 @@ import { AuthInterceptorProvider } from '../interceptador/auth-intercep';
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
-    ClienteService
+    ClienteService,
+    ProdutoService,
+    CartService,
+    ImageUtilService
   ]
 })
 export class AppModule {}
